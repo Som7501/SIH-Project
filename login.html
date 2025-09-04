@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Student Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #111827;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .auth-box {
+      background: #1f2937;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      width: 100%;
+      max-width: 400px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      background: #374151;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #2563eb;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    button:hover { background: #1d4ed8; }
+
+    p {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      cursor: pointer;
+    }
+    p:hover { text-decoration: underline; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-box">
+    <h1 id="form-title">Login</h1>
+    
+    <input type="text" id="name" placeholder="Full Name" style="display:none;" />
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    
+    <button id="auth-btn">Login</button>
+    
+    <p id="toggle">New user? Sign up here</p>
+  </div>
+
+  <script>
+    const isLogin = { value: true };
+    const title = document.getElementById("form-title");
+    const nameField = document.getElementById("name");
+    const authBtn = document.getElementById("auth-btn");
+    const toggle = document.getElementById("toggle");
+
+    toggle.addEventListener("click", () => {
+      isLogin.value = !isLogin.value;
+      if (isLogin.value) {
+        title.innerText = "Login";
+        nameField.style.display = "none";
+        authBtn.innerText = "Login";
+        toggle.innerText = "New user? Sign up here";
+      } else {
+        title.innerText = "Sign Up";
+        nameField.style.display = "block";
+        authBtn.innerText = "Sign Up";
+        toggle.innerText = "Already have an account? Login";
+      }
+    });
+
+    authBtn.addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const name = document.getElementById("name").value;
+
+      if (!email || !password || (!isLogin.value && !name)) {
+        alert("Please fill all fields");
+        return;
+      }
+
+      if (isLogin.value) {
+        // login
+        const user = JSON.parse(localStorage.getItem("studentUser"));
+        if (user && user.email === email && user.password === password) {
+          alert("Login successful!");
+          localStorage.setItem("loggedIn", true);
+          window.location.href = "dashboard.html";
+        } else {
+          alert("Invalid credentials");
+        }
+      } else {
+        // signup
+        const newUser = { name, email, password };
+        localStorage.setItem("studentUser", JSON.stringify(newUser));
+        alert("Signup successful! Please login.");
+        isLogin.value = true;
+        title.innerText = "Login";
+        nameField.style.display = "none";
+        authBtn.innerText = "Login";
+        toggle.innerText = "New user? Sign up here";
+      }
+    });
+  </script>
+</body>
+</html>

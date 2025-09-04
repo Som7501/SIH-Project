@@ -1,0 +1,248 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #111827;
+  color: white;
+  line-height: 1.6;
+}
+
+/* Header */
+.logo{
+  height: 40px;
+  margin-right: 15px;
+  border-radius: 8px;
+}
+.logo-container{
+  display: flex;
+  align-items: center;
+}
+header {
+  background: linear-gradient(90deg, #2563eb, #1e3a8a);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  animation: slideDown 0.8s ease;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+nav a:hover {
+  color: #fbbf24;
+  transform: scale(1.1);
+}
+.logout-btn {
+  background: #dc2626;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.logout-btn:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+  background: linear-gradient(180deg, #1e3a8a, #111827);
+  animation: fadeInUp 1s ease;
+}
+.hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  transition: transform 0.3s, color 0.3s;
+}
+.hero h2:hover {
+  transform: scale(1.05);
+  color: #fbbf24;
+}
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  color: #d1d5db;
+  transition: transform 0.3s ease;
+}
+.hero p:hover {
+  transform: scale(1.02);
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+/* Dashboard cards */
+.container {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+/* Dashboard + Feature Cards */
+.card, .feature {
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover, .feature:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.7);
+  background: linear-gradient(145deg, #1f2937, #2d3748);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+/* Dropdown panel */
+.dropdown {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: scaleY(0.9);
+  transition: all 0.5s ease;
+  background: #111827;
+  padding: 0 20px;
+  border-left: 3px solid #2563eb;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.dropdown.active {
+  max-height: 500px;
+  opacity: 1;
+  padding: 20px;
+  transform: scaleY(1);
+}
+
+/* Progress bar */
+.progress-bar {
+  background: #374151;
+  border-radius: 10px;
+  height: 12px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 60%;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  transition: width 0.5s ease;
+}
+
+/* FAQ Section */
+/* FAQ Section */
+.faq {
+  padding: 60px 20px;
+  background: #1f2937;
+}
+.faq h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+.faq-item {
+  max-width: 800px;
+  margin: 15px auto;
+  background: #111827;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  padding: 15px 20px;
+  overflow: hidden;
+}
+.faq-item:hover {
+  background: #2d3748;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-question {
+  font-weight: bold;
+  margin: 0;
+}
+.arrow {
+  transition: transform 0.3s ease;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.4s ease;
+  color: #d1d5db;
+}
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 10px;
+}
+.faq-item.active .arrow {
+  transform: rotate(180deg);
+}
+/* Footer */
+footer {
+  background: #1f2937;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 40px;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+footer a {
+  color: #fbbf24;
+  text-decoration: none;
+  margin: 0 10px;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

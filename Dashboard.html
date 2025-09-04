@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - School-to-Success</title>
+    <link rel="stylesheet" href="dahboard.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo-container">
+    <img class="logo" src="logo.jpg" alt="School-to-Success Logo" class="logo"/>
+    <h1>School-to-Success</h1>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#features">Features</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="logout-btn">Logout</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Welcome to School-to-Success 🎓</h2>
+    <p>
+      An AI-powered learning platform designed for students to grow in 
+      <strong>coding</strong>, <strong>entrepreneurship</strong>, and 
+      <strong>ethical behavior</strong>. Personalized paths, smart quizzes, 
+      and an AI Study Coach guide your journey to success!
+    </p>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <div class="feature">
+      <h3>💻 Coding</h3>
+      <p>Master HTML, CSS, JS, and more through interactive lessons, projects, and coding challenges.</p>
+    </div>
+    <div class="feature">
+      <h3>💡 Entrepreneurship</h3>
+      <p>Learn how to think like an entrepreneur: creativity, problem-solving, leadership, and pitching ideas.</p>
+    </div>
+    <div class="feature">
+      <h3>🌱 Ethical Behavior</h3>
+      <p>Develop values of honesty, teamwork, responsibility, and empathy through real-life case studies.</p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="container">
+    <div class="card">
+      <h2>👤 Student Profile</h2>
+      <p><strong>Name:</strong> <span id="profile-name"></span></p>
+      <p><strong>Email:</strong> <span id="profile-email"></span></p>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <p>Overall Progress</p>
+    </div>
+
+    <div class="card dropdown-toggle" data-target="quiz">
+      <h2>📝 Quizzes</h2>
+      <p>Test your knowledge with fun interactive quizzes.</p>
+      <div id="quiz" class="dropdown">
+        <p><strong>Sample Question:</strong></p>
+        <p>What does HTML stand for?</p>
+        <button onclick="checkQuiz(this, 'correct')">HyperText Markup Language</button>
+        <button onclick="checkQuiz(this, 'wrong')">HighText Machine Language</button>
+        <button onclick="checkQuiz(this, 'wrong')">Home Tool Markup Language</button>
+        <p id="quiz-result"></p>
+      </div>
+    </div>
+
+    <div class="card dropdown-toggle" data-target="ai">
+      <h2>🤖 AI Study Coach</h2>
+      <p>Get personalized learning recommendations.</p>
+      <div id="ai" class="dropdown">
+        <p>✨ Based on your progress, today’s focus should be:</p>
+        <ul>
+          <li>✅ Solve 2 coding problems in JavaScript</li>
+          <li>✅ Read “Basics of Entrepreneurship”</li>
+          <li>✅ Watch 10-min ethics case study video</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card dropdown-toggle" data-target="paths">
+      <h2>📚 Learning Paths</h2>
+      <p>Choose a track: Coding, Entrepreneurship, or Ethics.</p>
+      <div id="paths" class="dropdown">
+        <button>Start Coding Path 🚀</button>
+        <button>Explore Entrepreneurship 💡</button>
+        <button>Learn Ethics & Values 🌱</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🔥 Streaks</h2>
+      <p>You’ve studied for <strong>5 days in a row</strong>! Keep your streak alive 🔥</p>
+    </div>
+
+    <div class="card">
+      <h2>🏆 Achievements</h2>
+      <ul>
+        <li>✅ Completed “Intro to HTML”</li>
+        <li>✅ Solved 10 quizzes</li>
+        <li>🎯 Reached Beginner Level</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <p class="faq-question">What is School-to-Success?</p>
+      <p class="faq-answer">It’s an AI-powered platform that helps students learn coding, entrepreneurship, and ethics with personalized learning paths.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-question">Is it free to use?</p>
+      <p class="faq-answer">Yes! Students can access most resources for free. Premium features may be added in the future.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-question">Can I track my progress?</p>
+      <p class="faq-answer">Absolutely! You’ll have a personal dashboard showing your achievements, streaks, and learning history.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-question">Is there multilingual support?</p>
+      <p class="faq-answer">Yes, we provide lessons in multiple languages to make learning accessible for everyone.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="hero">
+    <h2>📩 Have Questions?</h2>
+    <p>We’re here to help! Reach out to us anytime.</p>
+    <p>Email: <a href="mailto:support@schooltosuccess.com">support@schooltosuccess.com</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 School-to-Success. All Rights Reserved.</p>
+    <p>
+      <a href="#">Contact</a> | 
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Service</a>
+    </p>
+  </footer>
+
+  <script src="dashboard.js">
+  </script>
+</body>
+</html>
